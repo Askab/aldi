@@ -1,0 +1,6 @@
+@ALDIBookProject_HostAddress = http://localhost:5173
+
+GET {{ALDIBookProject_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
