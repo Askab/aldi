@@ -5,11 +5,11 @@ namespace ALDIBookProject.Repositories.Interfaces
 {
     public interface ILoanRepository
     {
-        public List<Loan> ListAllLoans();
+        public Task<List<Loan>> ListAllLoans();
 
-        public Book CreateLoan(LoanDto loanDto);
+        public Loan CreateLoan(LoanDto loanDto);
 
-        public Book UpdateLoan(LoanDto loanDto);
+        public Loan UpdateLoan(LoanDto loanDto);
 
         public bool DeleteLoan(LoanDto loanDto);
     }

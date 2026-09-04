@@ -5,11 +5,11 @@ namespace ALDIBookProject.Repositories.Interfaces
 {
     public interface IUserRepository
     {
-        public List<User> ListAllUsers();
+        public Task<List<User>> ListAllUsers();
 
-        public Book CreateUser(UserDto userDto);
+        public User CreateUser(UserDto userDto);
 
-        public Book UpdateUser(UserDto userDto);
+        public User UpdateUser(UserDto userDto);
 
         public bool DeleteUser(UserDto userDto);
     }

@@ -5,7 +5,7 @@ namespace ALDIBookProject.Repositories.Interfaces
 {
     public interface IBookRepository
     {
-        public List<Book> ListAllBooks();
+        public Task<List<Book>> ListAllBooks();
 
         public Book CreateBook(BookDto bookDto);
 
