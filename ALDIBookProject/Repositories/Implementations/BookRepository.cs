@@ -30,6 +30,7 @@ namespace ALDIBookProject.Repositories.Implementations
         public Book CreateBook(BookDto bookDto)
         {
             Book book = new Book() {
+                Id = Guid.NewGuid(),
                 Title = bookDto.Title,
                 Author = bookDto.Author,
                 ISBN = bookDto.ISBN,

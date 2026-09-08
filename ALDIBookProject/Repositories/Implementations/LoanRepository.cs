@@ -30,7 +30,7 @@ namespace ALDIBookProject.Repositories.Implementations
         public Loan CreateLoan(LoanDto loanDto)
         {
             Loan loan = new () {
-                Id = loanDto.Id,
+                Id = Guid.NewGuid(),
                 UserId = loanDto.UserId,
                 BookId = loanDto.BookId,
                 LoanDate = loanDto.LoanDate,

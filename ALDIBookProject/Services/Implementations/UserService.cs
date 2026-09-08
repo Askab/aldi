@@ -24,19 +24,25 @@ namespace ALDIBookProject.Services.Implementations
             return _unitOfWork.UserRepository.GetById(id);
         }
 
-        public User CreateUser(UserDto userDto)
+        public async Task<User> CreateUser(UserDto userDto)
         {
-            return _unitOfWork.UserRepository.CreateUser(userDto);
+            User user = _unitOfWork.UserRepository.CreateUser(userDto);
+            await _unitOfWork.SaveChangesAsync();
+            return user;
         }
 
-        public User UpdateUser(UserDto userDto)
+        public async Task<User> UpdateUser(UserDto userDto)
         {
-            return _unitOfWork.UserRepository.UpdateUser(userDto);
+            User user = _unitOfWork.UserRepository.UpdateUser(userDto);
+            await _unitOfWork.SaveChangesAsync();
+            return user;
         }
 
-        public bool DeleteUser(UserDto userDto)
+        public async Task<bool> DeleteUser(UserDto userDto)
         {
-            return _unitOfWork.UserRepository.DeleteUser(userDto);
+            bool isDeleted = _unitOfWork.UserRepository.DeleteUser(userDto);
+            await _unitOfWork.SaveChangesAsync();
+            return isDeleted;
         }
     }
 }

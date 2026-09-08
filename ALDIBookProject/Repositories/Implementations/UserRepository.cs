@@ -30,7 +30,7 @@ namespace ALDIBookProject.Repositories.Implementations
         public User CreateUser(UserDto userDto)
         {
             User user = new() {
-                Id = userDto.Id,
+                Id = Guid.NewGuid(),
                 Name = userDto.Name,
                 Email = userDto.Email,
                 RegisteredDate = userDto.RegisteredDate,

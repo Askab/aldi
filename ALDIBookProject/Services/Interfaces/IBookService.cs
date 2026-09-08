@@ -9,10 +9,10 @@ namespace ALDIBookProject.Services.Interfaces
 
         public Task<Book?> GetById(Guid id);
 
-        public Book CreateBook(BookDto bookDto);
+        public Task<Book> CreateBook(BookDto bookDto);
 
-        public Book UpdateBook(BookDto bookDto);
+        public Task<Book> UpdateBook(BookDto bookDto);
 
-        public bool DeleteBook(BookDto bookDto);
+        public Task<bool> DeleteBook(BookDto bookDto);
     }
 }

@@ -24,19 +24,25 @@ namespace ALDIBookProject.Services.Implementations
             return _unitOfWork.BookRepository.GetById(id);
         }
 
-        public Book CreateBook(BookDto bookDto)
+        public async Task<Book> CreateBook(BookDto bookDto)
         {
-            return _unitOfWork.BookRepository.CreateBook(bookDto);
+            Book book = _unitOfWork.BookRepository.CreateBook(bookDto);
+            await _unitOfWork.SaveChangesAsync();
+            return book;
         }
 
-        public Book UpdateBook(BookDto bookDto)
+        public async Task<Book> UpdateBook(BookDto bookDto)
         {
-            return _unitOfWork.BookRepository.UpdateBook(bookDto);
+            Book book = _unitOfWork.BookRepository.UpdateBook(bookDto);
+            await _unitOfWork.SaveChangesAsync();
+            return book;
         }
 
-        public bool DeleteBook(BookDto bookDto)
+        public async Task<bool> DeleteBook(BookDto bookDto)
         {
-            return _unitOfWork.BookRepository.DeleteBook(bookDto);
+            bool isDeleted = _unitOfWork.BookRepository.DeleteBook(bookDto);
+            await _unitOfWork.SaveChangesAsync();
+            return isDeleted;
         }
     }
 }
