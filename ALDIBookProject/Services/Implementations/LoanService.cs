@@ -31,9 +31,9 @@ namespace ALDIBookProject.Services.Implementations
             return loan;
         }
 
-        public async Task<Loan?> UpdateLoan(LoanDto loanDto)
+        public async Task<Loan?> UpdateLoan(Guid id, LoanDto loanDto)
         {
-            Loan? loan = await _unitOfWork.LoanRepository.UpdateLoan(loanDto);
+            Loan? loan = await _unitOfWork.LoanRepository.UpdateLoan(id, loanDto);
             await _unitOfWork.SaveChangesAsync();
             return loan;
         }

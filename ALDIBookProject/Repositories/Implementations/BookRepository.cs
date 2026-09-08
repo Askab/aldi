@@ -43,9 +43,9 @@ namespace ALDIBookProject.Repositories.Implementations
             return book;
         }
 
-        public async Task<Book?> UpdateBook(BookDto bookDto)
+        public async Task<Book?> UpdateBook(Guid id, BookDto bookDto)
         {
-            Book? book = await _set.FindAsync(bookDto.Id);
+            Book? book = await _set.FindAsync(id);
 
             if (book == null)
                 return null;

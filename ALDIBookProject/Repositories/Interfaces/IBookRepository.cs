@@ -11,7 +11,7 @@ namespace ALDIBookProject.Repositories.Interfaces
 
         public Book CreateBook(BookDto bookDto);
 
-        public Task<Book?> UpdateBook(BookDto bookDto);
+        public Task<Book?> UpdateBook(Guid id, BookDto bookDto);
 
         public Task<bool> DeleteBook(BookDto bookDto);
     }

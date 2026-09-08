@@ -11,7 +11,7 @@ namespace ALDIBookProject.Services.Interfaces
 
         public Task<User> CreateUser(UserDto userDto);
 
-        public Task<User?> UpdateUser(UserDto userDto);
+        public Task<User?> UpdateUser(Guid id, UserDto userDto);
 
         public Task<bool> DeleteUser(UserDto userDto);
     }

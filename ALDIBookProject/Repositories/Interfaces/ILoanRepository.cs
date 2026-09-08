@@ -11,7 +11,7 @@ namespace ALDIBookProject.Repositories.Interfaces
 
         public Loan CreateLoan(LoanDto loanDto);
 
-        public Task<Loan?> UpdateLoan(LoanDto loanDto);
+        public Task<Loan?> UpdateLoan(Guid id, LoanDto loanDto);
 
         public Task<bool> DeleteLoan(LoanDto loanDto);
     }

@@ -41,9 +41,9 @@ namespace ALDIBookProject.Repositories.Implementations
             return user;
         }
 
-        public async Task<User?> UpdateUser(UserDto userDto)
+        public async Task<User?> UpdateUser(Guid id, UserDto userDto)
         {
-            User? user = await _set.FindAsync(userDto.Id);
+            User? user = await _set.FindAsync(id);
 
             if (user == null)
                 return null;

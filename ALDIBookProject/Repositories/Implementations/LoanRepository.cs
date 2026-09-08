@@ -42,9 +42,9 @@ namespace ALDIBookProject.Repositories.Implementations
             return loan;
         }
 
-        public async Task<Loan?> UpdateLoan(LoanDto loanDto)
+        public async Task<Loan?> UpdateLoan(Guid id, LoanDto loanDto)
         {
-            Loan? loan = await _set.FindAsync(loanDto.Id);
+            Loan? loan = await _set.FindAsync(id);
 
             if (loan == null)
                 return null;

@@ -31,9 +31,9 @@ namespace ALDIBookProject.Services.Implementations
             return book;
         }
 
-        public async Task<Book?> UpdateBook(BookDto bookDto)
+        public async Task<Book?> UpdateBook(Guid id, BookDto bookDto)
         {
-            Book? book = await _unitOfWork.BookRepository.UpdateBook(bookDto);
+            Book? book = await _unitOfWork.BookRepository.UpdateBook(id, bookDto);
             await _unitOfWork.SaveChangesAsync();
             return book;
         }

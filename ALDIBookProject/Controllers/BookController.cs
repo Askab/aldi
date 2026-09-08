@@ -48,8 +48,7 @@ namespace ALDIBookProject.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<Book?>> Update(Guid id, [FromBody] BookDto bookDto)
         {
-            bookDto.Id = id;
-            Book? book = await _bookService.UpdateBook(bookDto);
+            Book? book = await _bookService.UpdateBook(id, bookDto);
 
             if (book == null)
                 return NotFound();
