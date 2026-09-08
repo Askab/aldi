@@ -43,7 +43,7 @@ namespace ALDIBookProject.Repositories.Implementations
             return book;
         }
 
-        public Book UpdateBook(BookDto bookDto)
+        public async Task<Book?> UpdateBook(BookDto bookDto)
         {
             Book book = new Book()
             {
@@ -60,23 +60,16 @@ namespace ALDIBookProject.Repositories.Implementations
             return book;
         }
 
-        public bool DeleteBook(BookDto bookDto)
+        public async Task<bool> DeleteBook(BookDto bookDto)
         {
-            Book book = new Book()
-            {
-                Id = bookDto.Id,
-                Title = bookDto.Title,
-                Author = bookDto.Author,
-                ISBN = bookDto.ISBN,
-                PublishedYear = bookDto.PublishedYear,
-                IsAvailable = bookDto.IsAvailable
-            };
+            Book? book = await _set.FindAsync(bookDto.Id);
+
+            if (book == null)
+                return false;
 
             _set.Remove(book);
 
-            Book? result = _set.Find(book.Id);
-
-            return result == null;
+            return true;
         }
     }
 }

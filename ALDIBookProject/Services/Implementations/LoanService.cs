@@ -31,18 +31,22 @@ namespace ALDIBookProject.Services.Implementations
             return loan;
         }
 
-        public async Task<Loan> UpdateLoan(LoanDto loanDto)
+        public async Task<Loan?> UpdateLoan(LoanDto loanDto)
         {
-            Loan loan = _unitOfWork.LoanRepository.UpdateLoan(loanDto);
+            Loan? loan = await _unitOfWork.LoanRepository.UpdateLoan(loanDto);
             await _unitOfWork.SaveChangesAsync();
             return loan;
         }
 
         public async Task<bool> DeleteLoan(LoanDto loanDto)
         {
-            bool isDeleted = _unitOfWork.LoanRepository.DeleteLoan(loanDto);
+            bool isDeleted = await _unitOfWork.LoanRepository.DeleteLoan(loanDto);
+
+            if (!isDeleted)
+                return false;
+
             await _unitOfWork.SaveChangesAsync();
-            return isDeleted;
+            return true;
         }
     }
 }

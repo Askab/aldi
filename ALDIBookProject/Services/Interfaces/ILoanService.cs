@@ -11,7 +11,7 @@ namespace ALDIBookProject.Services.Interfaces
 
         public Task<Loan> CreateLoan(LoanDto loanDto);
 
-        public Task<Loan> UpdateLoan(LoanDto loanDto);
+        public Task<Loan?> UpdateLoan(LoanDto loanDto);
 
         public Task<bool> DeleteLoan(LoanDto loanDto);
     }

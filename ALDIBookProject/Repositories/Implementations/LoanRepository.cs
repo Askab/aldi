@@ -42,38 +42,31 @@ namespace ALDIBookProject.Repositories.Implementations
             return loan;
         }
 
-        public Loan UpdateLoan(LoanDto loanDto)
+        public async Task<Loan?> UpdateLoan(LoanDto loanDto)
         {
-            Loan loan = new()
-            {
-                Id = loanDto.Id,
-                UserId = loanDto.UserId,
-                BookId = loanDto.BookId,
-                LoanDate = loanDto.LoanDate,
-                ReturnDate = loanDto.ReturnDate,
-            };
+            Loan? loan = await _set.FindAsync(loanDto.Id);
 
-            _set.Update(loan);
+            if (loan == null)
+                return null;
+
+            loan.BookId = loanDto.BookId;
+            loan.UserId = loanDto.UserId;
+            loan.LoanDate = loanDto.LoanDate;
+            loan.ReturnDate = loanDto.ReturnDate;
 
             return loan;
         }
 
-        public bool DeleteLoan(LoanDto loanDto)
+        public async Task<bool> DeleteLoan(LoanDto loanDto)
         {
-            Loan loan = new()
-            {
-                Id = loanDto.Id,
-                UserId = loanDto.UserId,
-                BookId = loanDto.BookId,
-                LoanDate = loanDto.LoanDate,
-                ReturnDate = loanDto.ReturnDate,
-            };
+            Loan? loan = await _set.FindAsync(loanDto.Id);
+
+            if (loan == null)
+                return false;
 
             _set.Remove(loan);
 
-            Loan? result = _set.Find(loan.Id);
-
-            return result == null;
+            return true;
         }
     }
 }

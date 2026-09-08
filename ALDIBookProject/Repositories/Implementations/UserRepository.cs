@@ -41,36 +41,30 @@ namespace ALDIBookProject.Repositories.Implementations
             return user;
         }
 
-        public User UpdateUser(UserDto userDto)
+        public async Task<User?> UpdateUser(UserDto userDto)
         {
-            User user = new()
-            {
-                Id = userDto.Id,
-                Name = userDto.Name,
-                Email = userDto.Email,
-                RegisteredDate = userDto.RegisteredDate,
-            };
+            User? user = await _set.FindAsync(userDto.Id);
 
-            _set.Update(user);
+            if (user == null)
+                return null;
+
+            user.Name = userDto.Name;
+            user.Email = userDto.Email;
+            user.RegisteredDate = userDto.RegisteredDate;
 
             return user;
         }
 
-        public bool DeleteUser(UserDto userDto)
+        public async Task<bool> DeleteUser(UserDto userDto)
         {
-            User user = new()
-            {
-                Id = userDto.Id,
-                Name = userDto.Name,
-                Email = userDto.Email,
-                RegisteredDate = userDto.RegisteredDate,
-            };
+            User? user = await _set.FindAsync(userDto.Id);
+
+            if (user == null)
+                return false;
 
             _set.Remove(user);
 
-            User? result = _set.Find(userDto.Id);
-
-            return result == null;
+            return true;
         }
     }
 }

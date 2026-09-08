@@ -31,18 +31,23 @@ namespace ALDIBookProject.Services.Implementations
             return book;
         }
 
-        public async Task<Book> UpdateBook(BookDto bookDto)
+        public async Task<Book?> UpdateBook(BookDto bookDto)
         {
-            Book book = _unitOfWork.BookRepository.UpdateBook(bookDto);
+            Book? book = await _unitOfWork.BookRepository.UpdateBook(bookDto);
             await _unitOfWork.SaveChangesAsync();
             return book;
         }
 
         public async Task<bool> DeleteBook(BookDto bookDto)
         {
-            bool isDeleted = _unitOfWork.BookRepository.DeleteBook(bookDto);
+            bool isDeleted = await _unitOfWork.BookRepository.DeleteBook(bookDto);
+
+            if (!isDeleted)
+                return false;
+
             await _unitOfWork.SaveChangesAsync();
-            return isDeleted;
+
+            return true;
         }
     }
 }

@@ -11,8 +11,8 @@ namespace ALDIBookProject.Repositories.Interfaces
 
         public User CreateUser(UserDto userDto);
 
-        public User UpdateUser(UserDto userDto);
+        public Task<User?> UpdateUser(UserDto userDto);
 
-        public bool DeleteUser(UserDto userDto);
+        public Task<bool> DeleteUser(UserDto userDto);
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ALDIBookProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb96d70ef20ea75fcf8e87f61cf4d4ba666b0c0a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa9e6e2f04742dd9518f3f1a0cd30ddf767ea2f7")]
 [assembly: System.Reflection.AssemblyProductAttribute("ALDIBookProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ALDIBookProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

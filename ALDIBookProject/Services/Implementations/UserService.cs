@@ -31,18 +31,22 @@ namespace ALDIBookProject.Services.Implementations
             return user;
         }
 
-        public async Task<User> UpdateUser(UserDto userDto)
+        public async Task<User?> UpdateUser(UserDto userDto)
         {
-            User user = _unitOfWork.UserRepository.UpdateUser(userDto);
+            User? user = await _unitOfWork.UserRepository.UpdateUser(userDto);
             await _unitOfWork.SaveChangesAsync();
             return user;
         }
 
         public async Task<bool> DeleteUser(UserDto userDto)
         {
-            bool isDeleted = _unitOfWork.UserRepository.DeleteUser(userDto);
+            bool isDeleted = await _unitOfWork.UserRepository.DeleteUser(userDto);
+
+            if (isDeleted)
+                return false;
+
             await _unitOfWork.SaveChangesAsync();
-            return isDeleted;
+            return true;
         }
     }
 }
