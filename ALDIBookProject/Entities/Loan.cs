@@ -7,9 +7,9 @@ namespace ALDIBookProject.Entities
         [Key]
         public Guid Id { get; set; }
 
-        public User User { get; set; }
+        public Guid UserId { get; set; }
 
-        public Book Book { get; set; }
+        public Guid BookId { get; set; }
 
         public DateTime LoanDate { get; set; }
 

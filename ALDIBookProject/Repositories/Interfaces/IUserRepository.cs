@@ -7,7 +7,7 @@ namespace ALDIBookProject.Repositories.Interfaces
     {
         public Task<List<User>> ListAllUsers();
 
-        public Task<User?> GetById(int id);
+        public Task<User?> GetById(Guid id);
 
         public User CreateUser(UserDto userDto);
 

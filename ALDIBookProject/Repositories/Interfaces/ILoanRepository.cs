@@ -7,7 +7,7 @@ namespace ALDIBookProject.Repositories.Interfaces
     {
         public Task<List<Loan>> ListAllLoans();
 
-        public Task<Loan?> GetById(int id);
+        public Task<Loan?> GetById(Guid id);
 
         public Loan CreateLoan(LoanDto loanDto);
 

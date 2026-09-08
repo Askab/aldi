@@ -19,7 +19,7 @@ namespace ALDIBookProject.Services.Implementations
             return _unitOfWork.UserRepository.ListAllUsers();
         }
 
-        public Task<User?> GetById(int id)
+        public Task<User?> GetById(Guid id)
         {
             return _unitOfWork.UserRepository.GetById(id);
         }

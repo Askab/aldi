@@ -19,7 +19,7 @@ namespace ALDIBookProject.Services.Implementations
             return _unitOfWork.LoanRepository.ListAllLoans();
         }
 
-        public Task<Loan?> GetById(int id)
+        public Task<Loan?> GetById(Guid id)
         {
             return _unitOfWork.LoanRepository.GetById(id);
         }

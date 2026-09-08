@@ -7,7 +7,7 @@ namespace ALDIBookProject.Services.Interfaces
     {
         public Task<List<Book>> ListAllBooks();
 
-        public Task<Book?> GetById(int id);
+        public Task<Book?> GetById(Guid id);
 
         public Book CreateBook(BookDto bookDto);
 

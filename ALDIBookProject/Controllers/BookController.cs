@@ -26,7 +26,7 @@ namespace ALDIBookProject.Controllers
 
         // GET api/<BookController>/5
         [HttpGet("{id}")]
-        public Book? Get(int id)
+        public Book? Get(Guid id)
         {
             return _bookService.GetById(id).Result;
         }

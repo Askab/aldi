@@ -22,7 +22,7 @@ namespace ALDIBookProject.Repositories.Implementations
             return await _set.ToListAsync();
         }
 
-        public async Task<Loan?> GetById(int id)
+        public async Task<Loan?> GetById(Guid id)
         {
             return await _set.FindAsync(id);
         }
@@ -31,8 +31,8 @@ namespace ALDIBookProject.Repositories.Implementations
         {
             Loan loan = new () {
                 Id = loanDto.Id,
-                User = loanDto.User,
-                Book = loanDto.Book,
+                UserId = loanDto.UserId,
+                BookId = loanDto.BookId,
                 LoanDate = loanDto.LoanDate,
                 ReturnDate = loanDto.ReturnDate,
             };
@@ -47,8 +47,8 @@ namespace ALDIBookProject.Repositories.Implementations
             Loan loan = new()
             {
                 Id = loanDto.Id,
-                User = loanDto.User,
-                Book = loanDto.Book,
+                UserId = loanDto.UserId,
+                BookId = loanDto.BookId,
                 LoanDate = loanDto.LoanDate,
                 ReturnDate = loanDto.ReturnDate,
             };
@@ -63,8 +63,8 @@ namespace ALDIBookProject.Repositories.Implementations
             Loan loan = new()
             {
                 Id = loanDto.Id,
-                User = loanDto.User,
-                Book = loanDto.Book,
+                UserId = loanDto.UserId,
+                BookId = loanDto.BookId,
                 LoanDate = loanDto.LoanDate,
                 ReturnDate = loanDto.ReturnDate,
             };

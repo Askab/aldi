@@ -22,7 +22,7 @@ namespace ALDIBookProject.Repositories.Implementations
             return await _set.ToListAsync();
         }
 
-        public async Task<User?> GetById(int id)
+        public async Task<User?> GetById(Guid id)
         {
             return await _set.FindAsync(id);
         }
