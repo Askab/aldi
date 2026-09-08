@@ -7,6 +7,8 @@ namespace ALDIBookProject.Repositories.Interfaces
     {
         public Task<List<Book>> ListAllBooks();
 
+        public Task<Book?> GetById(int id);
+
         public Book CreateBook(BookDto bookDto);
 
         public Book UpdateBook(BookDto bookDto);

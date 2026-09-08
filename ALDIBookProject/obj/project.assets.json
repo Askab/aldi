@@ -60,6 +60,22 @@
       "Microsoft.EntityFrameworkCore.Analyzers/10.0.11": {
         "type": "package"
       },
+      "Microsoft.EntityFrameworkCore.InMemory/10.0.11": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "10.0.11"
+        },
+        "compile": {
+          "lib/net10.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/10.0.11": {
         "type": "package",
         "dependencies": {
@@ -76,7 +92,7 @@
           }
         }
       },
-      "Microsoft.OpenApi/3.10.2": {
+      "Microsoft.OpenApi/2.12.2": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.OpenApi.dll": {
@@ -203,6 +219,21 @@
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
+    "Microsoft.EntityFrameworkCore.InMemory/10.0.11": {
+      "sha512": "QBMaEmLIAzUUnH7+1Vbui+9Ui0dSsglkKxjW4sofOHycB3218UrnrUzq+Y75syrR4krUCtY7loWKaVBOeU3qKw==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.inmemory/10.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "lib/net10.0/Microsoft.EntityFrameworkCore.InMemory.dll",
+        "lib/net10.0/Microsoft.EntityFrameworkCore.InMemory.xml",
+        "microsoft.entityframeworkcore.inmemory.10.0.11.nupkg.sha512",
+        "microsoft.entityframeworkcore.inmemory.nuspec"
+      ]
+    },
     "Microsoft.EntityFrameworkCore.Relational/10.0.11": {
       "sha512": "grznnTJgEYxaWpdKAsTzg6j+89jHgCXWYp+QGtlX5O92+w/VuhWM6JLPYb+uw8M9VhGUvOTsO76dYOy9vNPd5Q==",
       "type": "package",
@@ -218,10 +249,10 @@
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
-    "Microsoft.OpenApi/3.10.2": {
-      "sha512": "qzg4a3WmgQm28Azaporbnsu+KHA+vq5sgpQQFLiJgB06Rra2S+kzGAU7pzUB8/UIwZJCSCY2JEE/M5e0hQ2K8w==",
+    "Microsoft.OpenApi/2.12.2": {
+      "sha512": "ZkT7qiJe0Kj0+DTZOZo+xrDy1kNmdsWFQVPIQLNx9ZJ0T9cB2LG7r+Bi60so8/+yg1nkS7QCPadrzsTG4VPKrA==",
       "type": "package",
-      "path": "microsoft.openapi/3.10.2",
+      "path": "microsoft.openapi/2.12.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -232,7 +263,7 @@
         "lib/netstandard2.0/Microsoft.OpenApi.dll",
         "lib/netstandard2.0/Microsoft.OpenApi.pdb",
         "lib/netstandard2.0/Microsoft.OpenApi.xml",
-        "microsoft.openapi.3.10.2.nupkg.sha512",
+        "microsoft.openapi.2.12.2.nupkg.sha512",
         "microsoft.openapi.nuspec"
       ]
     },
@@ -335,8 +366,9 @@
     "net10.0": [
       "Microsoft.AspNetCore.OpenApi >= 10.0.11",
       "Microsoft.EntityFrameworkCore >= 10.0.11",
+      "Microsoft.EntityFrameworkCore.InMemory >= 10.0.11",
       "Microsoft.EntityFrameworkCore.Relational >= 10.0.11",
-      "Microsoft.OpenApi >= 3.10.2",
+      "Microsoft.OpenApi >= 2.12.2",
       "Newtonsoft.Json >= 13.0.4",
       "System.Configuration.ConfigurationManager >= 10.0.11"
     ]
@@ -402,13 +434,17 @@
             "target": "Package",
             "version": "[10.0.11, )"
           },
+          "Microsoft.EntityFrameworkCore.InMemory": {
+            "target": "Package",
+            "version": "[10.0.11, )"
+          },
           "Microsoft.EntityFrameworkCore.Relational": {
             "target": "Package",
             "version": "[10.0.11, )"
           },
           "Microsoft.OpenApi": {
             "target": "Package",
-            "version": "[3.10.2, )"
+            "version": "[2.12.2, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",
@@ -855,17 +891,5 @@
         }
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1608",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package version outside of dependency constraint: Microsoft.AspNetCore.OpenApi 10.0.11 requires Microsoft.OpenApi (>= 2.7.5 && < 3.0.0) but version Microsoft.OpenApi 3.10.2 was resolved.",
-      "libraryId": "Microsoft.OpenApi",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
+  }
 }

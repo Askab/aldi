@@ -14,12 +14,17 @@ namespace ALDIBookProject.Repositories.Implementations
         public LoanRepository(BookDBContext context)
         {
             _context = context;
-            _set = _context.Set<Loan>();
+            _set = _context.Loans;
         }
 
         public async Task<List<Loan>> ListAllLoans()
         {
             return await _set.ToListAsync();
+        }
+
+        public async Task<Loan?> GetById(int id)
+        {
+            return await _set.FindAsync(id);
         }
 
         public Loan CreateLoan(LoanDto loanDto)

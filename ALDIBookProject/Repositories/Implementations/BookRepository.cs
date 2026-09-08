@@ -14,12 +14,17 @@ namespace ALDIBookProject.Repositories.Implementations
         public BookRepository(BookDBContext context) 
         {
             _context = context;
-            _set = _context.Set<Book>();
+            _set = _context.Books;
         }
 
         public async Task<List<Book>> ListAllBooks()
         {
             return await _set.ToListAsync();
+        }
+
+        public async Task<Book?> GetById(int id)
+        {
+            return await _set.FindAsync(id);
         }
 
         public Book CreateBook(BookDto bookDto)

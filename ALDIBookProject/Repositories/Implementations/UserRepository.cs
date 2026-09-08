@@ -14,12 +14,17 @@ namespace ALDIBookProject.Repositories.Implementations
         public UserRepository(BookDBContext context)
         {
             _context = context;
-            _set = _context.Set<User>();
+            _set = _context.Users;
         }
 
         public async Task<List<User>> ListAllUsers()
         {
             return await _set.ToListAsync();
+        }
+
+        public async Task<User?> GetById(int id)
+        {
+            return await _set.FindAsync(id);
         }
 
         public User CreateUser(UserDto userDto)
