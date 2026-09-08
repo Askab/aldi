@@ -45,17 +45,16 @@ namespace ALDIBookProject.Repositories.Implementations
 
         public async Task<Book?> UpdateBook(BookDto bookDto)
         {
-            Book book = new Book()
-            {
-                Id = bookDto.Id,
-                Title = bookDto.Title,
-                Author = bookDto.Author,
-                ISBN = bookDto.ISBN,
-                PublishedYear = bookDto.PublishedYear,
-                IsAvailable = bookDto.IsAvailable
-            };
+            Book? book = await _set.FindAsync(bookDto.Id);
 
-            _set.Update(book);
+            if (book == null)
+                return null;
+
+            book.Title = bookDto.Title;
+            book.Author = bookDto.Author;
+            book.ISBN = bookDto.ISBN;
+            book.PublishedYear = bookDto.PublishedYear;
+            book.IsAvailable = bookDto.IsAvailable;
 
             return book;
         }

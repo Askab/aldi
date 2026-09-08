@@ -46,9 +46,13 @@ namespace ALDIBookProject.Controllers
 
         // PUT api/<BookController>/550e8400-e29b-41d4-a716-446655440000
         [HttpPut("{id}")]
-        public async Task<ActionResult<Book>> Update(Guid id, [FromBody] BookDto bookDto)
+        public async Task<ActionResult<Book?>> Update(Guid id, [FromBody] BookDto bookDto)
         {
-            Book book = await _bookService.UpdateBook(bookDto);
+            bookDto.Id = id;
+            Book? book = await _bookService.UpdateBook(bookDto);
+
+            if (book == null)
+                return NotFound();
 
             return Ok(book);
         }
