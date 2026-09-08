@@ -100,38 +100,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "oneOf": [
-                    {
-                      "type": "null"
-                    },
-                    {
-                      "$ref": "#/components/schemas/Book"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/Book"
                 }
               },
               "application/json": {
                 "schema": {
-                  "oneOf": [
-                    {
-                      "type": "null"
-                    },
-                    {
-                      "$ref": "#/components/schemas/Book"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/Book"
                 }
               },
               "text/json": {
                 "schema": {
-                  "oneOf": [
-                    {
-                      "type": "null"
-                    },
-                    {
-                      "$ref": "#/components/schemas/Book"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/Book"
                 }
               }
             }

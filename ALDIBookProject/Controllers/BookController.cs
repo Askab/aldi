@@ -26,9 +26,11 @@ namespace ALDIBookProject.Controllers
 
         // GET api/<BookController>/5
         [HttpGet("{id}")]
-        public Book? Get(Guid id)
+        public async Task<ActionResult<Book>> Get(Guid id)
         {
-            return _bookService.GetById(id).Result;
+            Book? book = await _bookService.GetById(id);
+
+            return book == null ? NotFound() : Ok(book);
         }
 
         // POST api/<BookController>
