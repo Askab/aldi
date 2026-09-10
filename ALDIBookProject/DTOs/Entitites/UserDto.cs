@@ -8,6 +8,6 @@
 
         public string Email { get; set; }
 
-        public DateTime RegisteredDate { get; set; }
+        public DateTime RegisteredDate { get; set; } = DateTime.Now;
     }
 }

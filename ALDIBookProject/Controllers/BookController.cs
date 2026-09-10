@@ -21,9 +21,9 @@ namespace ALDIBookProject.Controllers
 
         // GET: api/<BookController>
         [HttpGet]
-        public IEnumerable<Book> Get()
+        public async Task<IEnumerable<Book>> Get()
         {
-            return _bookService.ListAllBooks().Result;
+            return await _bookService.ListAllBooks();
         }
 
         // GET api/<BookController>/550e8400-e29b-41d4-a716-446655440000
