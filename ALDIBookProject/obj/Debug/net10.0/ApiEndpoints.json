@@ -150,6 +150,32 @@
   },
   {
     "ContainingType": "ALDIBookProject.Controllers.LoanController",
+    "Method": "GetLoansByUserId",
+    "RelativePath": "api/Loan",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ALDIBookProject.Entities.Loan, ALDIBookProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ALDIBookProject.Controllers.LoanController",
     "Method": "Create",
     "RelativePath": "api/Loan",
     "HttpMethod": "POST",
@@ -279,7 +305,7 @@
   },
   {
     "ContainingType": "ALDIBookProject.Controllers.UserController",
-    "Method": "Post",
+    "Method": "Create",
     "RelativePath": "api/User",
     "HttpMethod": "POST",
     "IsController": true,
@@ -331,7 +357,7 @@
   },
   {
     "ContainingType": "ALDIBookProject.Controllers.UserController",
-    "Method": "Put",
+    "Method": "Update",
     "RelativePath": "api/User/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -385,26 +411,5 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "ALDIBookProject.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[ALDIBookProject.WeatherForecast, ALDIBookProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "GetWeatherForecast"
   }
 ]

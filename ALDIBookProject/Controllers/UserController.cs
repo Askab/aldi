@@ -37,8 +37,15 @@ namespace ALDIBookProject.Controllers
 
         // POST api/<UserController>
         [HttpPost]
-        public async Task<ActionResult<User>> Post([FromBody] UserDto userDto)
+        public async Task<ActionResult<User>> Create([FromBody] UserDto userDto)
         {
+            User? existingUser = await _userService.GetUserByEmail(userDto.Email);
+
+            if (existingUser != null)
+            {
+                return BadRequest("User with this email already exists.");
+            }
+
             User user = await _userService.CreateUser(userDto);
 
             return user == null ? BadRequest() : CreatedAtAction(nameof(Get), new { id = user.Id }, user);
@@ -46,7 +53,7 @@ namespace ALDIBookProject.Controllers
 
         // PUT api/<UserController>/5
         [HttpPut("{id}")]
-        public async Task<ActionResult<User?>> Put(Guid id, [FromBody] UserDto userDto)
+        public async Task<ActionResult<User?>> Update(Guid id, [FromBody] UserDto userDto)
         {
             User? user = await _userService.UpdateUser(id, userDto);
 

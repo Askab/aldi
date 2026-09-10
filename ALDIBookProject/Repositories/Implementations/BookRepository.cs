@@ -59,6 +59,18 @@ namespace ALDIBookProject.Repositories.Implementations
             return book;
         }
 
+        public async Task<Book?> UpdateBookAvailability(Guid id, bool isAvailable)
+        {
+            Book? book = await this.GetById(id);
+
+            if (book == null)
+                return null;
+
+            book.IsAvailable = isAvailable;
+
+            return book;
+        }
+
         public async Task<bool> DeleteBook(BookDto bookDto)
         {
             Book? book = await _set.FindAsync(bookDto.Id);

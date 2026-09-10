@@ -9,6 +9,8 @@ namespace ALDIBookProject.Services.Interfaces
 
         public Task<Loan?> GetById(Guid id);
 
+        public Task<List<Loan>> ListLoansByUserId(Guid userId);
+
         public Task<Loan> CreateLoan(LoanDto loanDto);
 
         public Task<Loan?> UpdateLoan(Guid id, LoanDto loanDto);

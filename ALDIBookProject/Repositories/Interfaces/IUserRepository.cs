@@ -9,6 +9,8 @@ namespace ALDIBookProject.Repositories.Interfaces
 
         public Task<User?> GetById(Guid id);
 
+        public Task<User?> GetByEmail(string email);
+
         public User CreateUser(UserDto userDto);
 
         public Task<User?> UpdateUser(Guid id, UserDto userDto);

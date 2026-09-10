@@ -27,6 +27,11 @@ namespace ALDIBookProject.Repositories.Implementations
             return await _set.FindAsync(id);
         }
 
+        public async Task<User?> GetByEmail(string email)
+        {
+            return await _set.FirstOrDefaultAsync(u => u.Email == email);
+        }
+
         public User CreateUser(UserDto userDto)
         {
             User user = new() {

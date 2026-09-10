@@ -13,6 +13,8 @@ namespace ALDIBookProject.Repositories.Interfaces
 
         public Task<Book?> UpdateBook(Guid id, BookDto bookDto);
 
+        public Task<Book?> UpdateBookAvailability(Guid id, bool isAvailable);
+
         public Task<bool> DeleteBook(BookDto bookDto);
     }
 }

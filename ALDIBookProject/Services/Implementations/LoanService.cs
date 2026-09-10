@@ -2,6 +2,7 @@
 using ALDIBookProject.Entities;
 using ALDIBookProject.Repositories.Interfaces;
 using ALDIBookProject.Services.Interfaces;
+using System.ComponentModel;
 
 namespace ALDIBookProject.Services.Implementations
 {
@@ -24,10 +25,18 @@ namespace ALDIBookProject.Services.Implementations
             return _unitOfWork.LoanRepository.GetById(id);
         }
 
+        public async Task<List<Loan>> ListLoansByUserId(Guid userId)
+        {
+            return await _unitOfWork.LoanRepository.ListLoansByUserId(userId);
+        }
+
         public async Task<Loan> CreateLoan(LoanDto loanDto)
         {
             Loan loan = _unitOfWork.LoanRepository.CreateLoan(loanDto);
+            Book? book = await _unitOfWork.BookRepository.UpdateBookAvailability(loanDto.BookId, false);
+
             await _unitOfWork.SaveChangesAsync();
+
             return loan;
         }
 

@@ -19,9 +19,14 @@ namespace ALDIBookProject.Services.Implementations
             return _unitOfWork.UserRepository.ListAllUsers();
         }
 
-        public Task<User?> GetById(Guid id)
+        public async Task<User?> GetById(Guid id)
         {
-            return _unitOfWork.UserRepository.GetById(id);
+            return await _unitOfWork.UserRepository.GetById(id);
+        }
+
+        public async Task<User?> GetUserByEmail(string email)
+        {
+            return await _unitOfWork.UserRepository.GetByEmail(email);
         }
 
         public async Task<User> CreateUser(UserDto userDto)

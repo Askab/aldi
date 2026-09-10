@@ -27,6 +27,11 @@ namespace ALDIBookProject.Repositories.Implementations
             return await _set.FindAsync(id);
         }
 
+        public async Task<List<Loan>> ListLoansByUserId(Guid userId)
+        {
+            return await _set.Where(loan => loan.UserId == userId).ToListAsync();
+        }
+
         public Loan CreateLoan(LoanDto loanDto)
         {
             Loan loan = new () {
